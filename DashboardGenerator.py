@@ -148,6 +148,11 @@ class DashboardGenerator:
         between separated threshold segments (line breaks at NaNs).
         """
         plots = data['content']['plots']
+        background_color = data.get('background_color', None)
+        
+        # Apply background color to entire axis
+        if background_color is not None:
+            ax.set_facecolor(background_color)
     
         for plot_data in plots:
             x = np.asarray(plot_data['x'])
@@ -248,7 +253,7 @@ class DashboardGenerator:
 # Example usage
 # -------------------------------------------------------------------------
 if __name__ == "__main__":
-    NUM_PAGES = 3
+    NUM_PAGES = 4
     
     dashboard = DashboardGenerator(
         config_path='dashboard_layout.yaml',
@@ -291,6 +296,7 @@ if __name__ == "__main__":
         y_blue = np.cos(x + page_idx * 0.3) * 1.5 + 2
         row3_data.append({
             'title': f'Dual Plot - Page {page_idx+1}',
+            'background_color': 'lightcoral',
             'content': {
                 'plots': [
                     {
@@ -313,8 +319,18 @@ if __name__ == "__main__":
         
         # Graph 2: Type 2 - Single red plot with threshold
         y_red2 = np.sin(x * 2 + page_idx) * 1.5 + 2.5
+
+        if page_idx % 2 == 0:
+            bg_color = 'lightcoral'
+        else:
+            bg_color = 'white'
+
+
+
         row3_data.append({
             'title': f'Single Red Plot - Page {page_idx+1}',
+            'background_color': bg_color,
+
             'content': {
                 'plots': [
                     {
