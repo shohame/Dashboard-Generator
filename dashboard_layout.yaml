@@ -1,0 +1,18 @@
+# Dashboard Layout Configuration
+# Each row can contain: 'image', 'bitmap', or 'graph' components
+
+layout:
+  # Row 1: Two images and two bitmaps
+  - components: [image, image, bitmap, bitmap]
+    image_span: 1  # Optional: how many columns the image spans
+  
+  # Row 2: Four bitmaps
+  - components: [bitmap, bitmap, bitmap, bitmap]
+  
+  # Row 3: Four graphs
+  - components: [graph, graph, graph, graph]
+  
+  # Row 4: Four graphs
+  - components: [graph, graph, graph, graph]
+
+  
