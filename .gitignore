@@ -13,7 +13,6 @@ __pycache__/
 .Python
 
 # IDE
-.vscode/
 .idea/
 *.swp
 *.swo
