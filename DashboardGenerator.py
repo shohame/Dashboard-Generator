@@ -146,6 +146,13 @@ class DashboardGenerator:
         """
         Draw a graph component with optional thresholds, without connecting lines
         between separated threshold segments (line breaks at NaNs).
+        
+        Common background colors to use:
+        - No color: 'white', 'whitesmoke'
+        - Light colors: 'lightcoral', 'lightyellow', 'lightgreen', 'lightblue', 'lightpink', 
+                       'lightgray', 'mistyrose', 'lavender', 'honeydew', 'aliceblue'
+        - Pastel colors: 'wheat', 'peachpuff', 'khaki', 'palegreen', 'powderblue', 'thistle'
+        - Very light: 'whitesmoke', 'ivory', 'beige', 'seashell', 'oldlace', 'floralwhite'
         """
         plots = data['content']['plots']
         background_color = data.get('background_color', None)
@@ -204,8 +211,8 @@ class DashboardGenerator:
         ax.set_title(data['title'])
         ax.grid(True, alpha=0.3)
     
-        if len(plots) > 1 or any(p.get('threshold') is not None for p in plots):
-            ax.legend(loc='best', fontsize=8)
+        #if len(plots) > 1 or any(p.get('threshold') is not None for p in plots):
+        #    ax.legend(loc='best', fontsize=8)
 
     def add_page(self, page_data):
         """
